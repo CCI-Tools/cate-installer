@@ -1,0 +1,40 @@
+# See https://github.com/conda/constructor/blob/master/CONSTRUCT.md
+# for more information about this file.
+
+name: cate
+version: "0.7.0a4"
+
+channels:
+  - http://repo.continuum.io/pkgs/free
+  - http://conda.anaconda.org/conda-forge
+  - http://conda.anaconda.org/ccitools
+
+conda_default_channels:
+  - http://repo.continuum.io/pkgs/free
+  - http://conda.anaconda.org/conda-forge
+
+specs:
+  - python 3.5*
+
+  - cartopy
+  - cate
+  - conda
+  - dask
+  - jdcal
+  - matplotlib
+  - netcdf4
+  - numba
+  - numpy
+  - pandas
+  - pyqt
+  - pillow >=3.4,<4
+  - scipy
+  - tornado >=4.4,<5
+  - xarray
+
+license_file: ../LICENSE
+
+# Welcome image for Windows installer
+welcome_image: welcome_162x314.png
+header_image: header_150x57.png
+icon_image: icon_256x256.png

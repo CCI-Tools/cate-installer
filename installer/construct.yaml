@@ -15,22 +15,7 @@ conda_default_channels:
 
 specs:
   - python 3.5*
-
-  - cartopy
   - cate
-  - conda
-  - dask
-  - jdcal
-  - matplotlib
-  - netcdf4
-  - numba
-  - numpy
-  - pandas
-  - pyqt
-  - pillow >=3.4,<4
-  - scipy
-  - tornado >=4.4,<5
-  - xarray
 
 license_file: ../LICENSE
 

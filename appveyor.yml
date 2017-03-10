@@ -1,4 +1,4 @@
-version: '0.7.0a4'
+version: '0.7.0a4.{build}'
 
 build: off
 
@@ -11,12 +11,6 @@ install:
   - conda install -y constructor
   - constructor installer
 
-platform:
-  - x86
-  - x64
-
-matrix:
-  fast_finish: true
 
 artifacts:
   - path: '*.exe'

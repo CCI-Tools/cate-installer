@@ -1,7 +1,13 @@
 language: generic
 
 env:
-  - CONDA_PY=3.5
+  global:
+    - CONDA_PY=3.5
+    - FTP_USER=ccitbx
+    - FTP_HOST=ftp.brockmann-consult.de
+    # using http://rkh.github.io/travis-encrypt/public/index.html
+    # FTP_PASSWORD
+    - secure: "mmc19/DKkBb5i/zsbgnpoL7KwE72hWIk72B/XT8m4HO4ERPjjNl6B3NYA6EotQuxNdCbGvHjGozN5dVw/O1mTxONAIrdvrYw55lPHvLBPmzxBh+xMMPGT+EghZixcCD9iT1h1cliJaHKDqqsOKIKZR/vHT4DNSBB6cNwe+IhnYqamqiI2GD7kreSzkb/1I5lLhOjJhmopDbJYdQik0LvwJYqtnHyHMTyqCsBsxmfR+r7/25qedTXgvBhs1Gk3aJODP05kqtqsze/MRy22qx2UCP9+4ZazKMMGAwULrkCw3cA8ZWIrBeImTQGxLd/dS90lLb2OGGaTyQGEyLb1GG1rR1YiJUjdUhbSDVM9yOEkyo3QxLxkSwW3VlLu5SUYsQzo/4HWIbvBnJ39+4wRVnjLaU2IsttWYwEWvdERJTM6Fc37Yvhq90eCZZ5pyEEqCNCHi9E9apiNvSOiaaTzNN6j1nKrWaHP+1Xbk597dnsdd2Utyb6dmJc9blhIwXi4T+ui8MBJkzgrZ9k52uZkDNQUxJCahEjcoHtjVmefTCE3M52jQG3476hoCYCeiw6+MvgsSPxekVShCdutwdg54kVBEw52QHjHvZ/OAR7eu2BRsYPagwzC2AE7BJ+0zsP0cfvS242FCHTkMiXXxKpqewXO7Kx2vv0aAvBTprvFr4Moc0="
 
 os:
   - linux
@@ -24,4 +30,8 @@ install:
 
 script:
   - constructor installer
-
+  # only publish artifacts on master branch when pushed (not from cron or PRs)
+  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
+      INSTALLER_FILE=cate*.sh
+      curl --ftp-create-dirs -T $INSTALLER_FILE -u $FTP_USER:$FTP_PASSWORD ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/
+    fi

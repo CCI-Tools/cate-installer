@@ -1,4 +1,7 @@
-language: generic
+language: node_js
+
+node_js:
+  - "6"
 
 env:
   global:
@@ -12,7 +15,12 @@ os:
   - linux
   - osx
 
+cache:
+  directories:
+    - node_modules
+
 install:
+  # core
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
     else
@@ -24,14 +32,27 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda
   - conda install -y constructor
+  # desktop
+  - git clone https://github.com/CCI-Tools/cate-desktop.git
+  - (cd cate-desktop && npm install)
 
 script:
   - constructor installer
+  - (cd cate-desktop && npm run dist)
 
 after_success:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      FRONTEND_INSTALLER_FILE="cate-desktop/dist/mac/*.dmg";
+    else
+      FRONTEND_INSTALLER_FILE="cate-desktop/dist/*.AppImage";
+    fi
+  - MINICONDA_INSTALLER_FILE=cate*.sh;
+  #
+  - echo $MINICONDA_INSTALLER_FILE
+  - echo $FRONTEND_INSTALLER_FILE
+  #
   # only publish artifacts on master branch when pushed (not from cron or PRs)
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
-      INSTALLER_FILE=cate*.sh;
-      echo curl --ftp-create-dirs -T $INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
-      curl --ftp-create-dirs -T $INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
+      curl --ftp-create-dirs -T $MINICONDA_INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
+      curl --ftp-create-dirs -T $$FRONTEND_INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
     fi

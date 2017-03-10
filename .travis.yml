@@ -2,7 +2,6 @@ language: generic
 
 env:
   global:
-    - CONDA_PY=3.5
     - FTP_USER=ccitbx
     - FTP_HOST=ftp.brockmann-consult.de
     # using http://rkh.github.io/travis-encrypt/public/index.html
@@ -24,9 +23,7 @@ install:
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda
-  - conda info -a
-  - conda create -n constructor-environment python=$CONDA_PY constructor
-  - source activate constructor-environment
+  - conda install -y constructor
 
 script:
   - constructor installer

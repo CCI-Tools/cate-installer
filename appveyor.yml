@@ -8,10 +8,24 @@ branches:
 
 install:
   - set PATH=C:\Miniconda35-x64;C:\Miniconda35-x64\Scripts;%PATH%
+  - conda config --set always_yes yes --set changeps1 no
+  - conda update conda
   - conda install -y constructor
-  - constructor installer
 
+build_script:
+  - constructor installer
 
 artifacts:
   - path: '*.exe'
     name: cate-installer-exe
+
+deploy:
+  - provider: FTP
+    protocol: ftp
+    host: ftp.brockmann-consult.de
+    username: ccitbx
+    password:
+      secure: pgE0Tsk7QVyQ6jvH42jqWA==
+    artifact: cate-installer-exe
+    folder: software/win64
+    debug: true

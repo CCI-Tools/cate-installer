@@ -14,7 +14,7 @@ conda_default_channels:
   - http://conda.anaconda.org/conda-forge
 
 specs:
-  - python 3.5*
+  #- python 3.5*
   - cate 0.7.0.dev1*
 
 license_file: ../LICENSE

@@ -5,16 +5,16 @@ name: cate
 version: "0.7.0a4"
 
 channels:
-  - http://repo.continuum.io/pkgs/free
   - http://conda.anaconda.org/conda-forge
+  - http://repo.continuum.io/pkgs/free
   - http://conda.anaconda.org/ccitools
 
 conda_default_channels:
-  - http://repo.continuum.io/pkgs/free
   - http://conda.anaconda.org/conda-forge
+  - http://repo.continuum.io/pkgs/free
 
 specs:
-  #- python 3.5*
+  - python 3.5*
   - cate 0.7.0.dev1*
 
 license_file: ../LICENSE

@@ -35,5 +35,6 @@ after_success:
   # only publish artifacts on master branch when pushed (not from cron or PRs)
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
       INSTALLER_FILE=cate*.sh;
+      echo curl --ftp-create-dirs -T $INSTALLER_FILE -u $FTP_USER:$FTP_PASSWORD "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
       curl --ftp-create-dirs -T $INSTALLER_FILE -u $FTP_USER:$FTP_PASSWORD "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
     fi

@@ -30,6 +30,8 @@ install:
 
 script:
   - constructor installer
+
+after_success:
   # only publish artifacts on master branch when pushed (not from cron or PRs)
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
       INSTALLER_FILE=cate*.sh;

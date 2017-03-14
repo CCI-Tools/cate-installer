@@ -21,7 +21,7 @@ install:
   # desktop
   - git clone https://github.com/CCI-Tools/cate-desktop.git
   - cd cate-desktop
-  - ps: Install-Product node $env:nodejs_version
+  - ps: Install-Product node $env:nodejs_version x64
   - npm install
   - cd ..
 

@@ -49,14 +49,16 @@ script:
   - (cd cate-desktop && npm run dist)
 
 after_success:
+  - ls -lR cate-desktop/dist
+  #
   - MINICONDA_INSTALLER=cate*.sh;
+  - echo $MINICONDA_INSTALLE
+  #
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       ELECTRON_INSTALLER="cate-desktop/dist/mac/cate*.dmg";
     else
       ELECTRON_INSTALLER="cate-desktop/dist/cate*.AppImage";
     fi
-  #
-  - echo $MINICONDA_INSTALLER
   - echo $ELECTRON_INSTALLER
   #
   # only publish artifacts on master branch when pushed (not from cron or PRs)

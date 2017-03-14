@@ -36,6 +36,8 @@ build_script:
 artifacts:
   - path: '*.exe'
     name: miniconda-exe
+  - path: 'cate-desktop\dist\*.exe'
+    name: electron-exe
 
 deploy:
   - provider: FTP
@@ -44,6 +46,5 @@ deploy:
     username: ccitbx
     password:
       secure: pgE0Tsk7QVyQ6jvH42jqWA==
-    artifact: miniconda-exe
     folder: software/win64
     debug: true

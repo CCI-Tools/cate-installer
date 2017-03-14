@@ -11,13 +11,20 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda
   - conda install -y constructor
+  - git clone https://github.com/CCI-Tools/cate-desktop.git
+  - cd cate-desktop
+  - npm install
+  - cd ..
 
 build_script:
   - constructor installer
+  - cd cate-desktop
+  - npm run dist
+  - cd ..
 
 artifacts:
   - path: '*.exe'
-    name: cate-installer-exe
+    name: miniconda-exe
 
 deploy:
   - provider: FTP
@@ -26,6 +33,6 @@ deploy:
     username: ccitbx
     password:
       secure: pgE0Tsk7QVyQ6jvH42jqWA==
-    artifact: cate-installer-exe
+    artifact: miniconda-exe
     folder: software/win64
     debug: true

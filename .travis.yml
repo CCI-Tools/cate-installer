@@ -50,9 +50,9 @@ script:
 
 after_success:
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      FRONTEND_INSTALLER_FILE="cate-desktop/dist/mac/*.dmg";
+      FRONTEND_INSTALLER_FILE="cate-desktop/dist/mac/cate*.dmg";
     else
-      FRONTEND_INSTALLER_FILE="cate-desktop/dist/*.AppImage";
+      FRONTEND_INSTALLER_FILE="cate-desktop/dist/cate*.AppImage";
     fi
   - MINICONDA_INSTALLER_FILE=cate*.sh;
   #

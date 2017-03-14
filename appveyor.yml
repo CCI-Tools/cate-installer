@@ -28,16 +28,17 @@ install:
 build_script:
   # core
   - constructor installer
+  - ps: $MINICONDA_FILE="*.exe"
   # desktop
   - cd cate-desktop
   - npm run dist
   - cd ..
+  - move cate-desktop\dist win64
+  - ps: cp $MINICONDA_FILE win64
 
 artifacts:
-  - path: '*.exe'
-    name: miniconda-exe
-  - path: 'cate-desktop\dist\*.exe'
-    name: electron-exe
+  - path: 'win64\*.exe'
+    name: installer
 
 deploy:
   - provider: FTP
@@ -46,5 +47,5 @@ deploy:
     username: ccitbx
     password:
       secure: pgE0Tsk7QVyQ6jvH42jqWA==
-    folder: software/win64
+    folder: software
     debug: true

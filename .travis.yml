@@ -49,14 +49,16 @@ script:
   - (cd cate-desktop && npm run dist)
 
 after_success:
-  - ls -lR cate-desktop/dist
+  # core
   #
   - MINICONDA_INSTALLER=cate*.sh;
-  - echo $MINICONDA_INSTALLE
+  - echo $MINICONDA_INSTALLER
     # only publish artifacts on master branch when pushed (not from cron or PRs)
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
       curl --ftp-create-dirs -T $MINICONDA_INSTALLER -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
     fi
+  #
+  # desktop
   #
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       ELECTRON_INSTALLER_DMG="cate-desktop/dist/Cate*.dmg";

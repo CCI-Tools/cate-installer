@@ -51,6 +51,7 @@ script:
 after_success:
   # core
   #
+  - echo "success: pushing artifacts to FTP..."
   - MINICONDA_INSTALLER="cate*.sh"
   - echo $MINICONDA_INSTALLER
     # only publish artifacts on master branch when pushed (not from cron or PRs)

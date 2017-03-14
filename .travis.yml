@@ -49,9 +49,7 @@ script:
   - (cd cate-desktop && npm run dist)
 
 after_success:
-  # core
-  #
-  - echo "success: pushing artifacts to FTP..."
+  - echo "success pushing artifacts to FTP..."
   - MINICONDA_INSTALLER="cate*.sh"
   - echo $MINICONDA_INSTALLER
     # only publish artifacts on master branch when pushed (not from cron or PRs)

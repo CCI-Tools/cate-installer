@@ -49,18 +49,18 @@ script:
   - (cd cate-desktop && npm run dist)
 
 after_success:
+  - MINICONDA_INSTALLER=cate*.sh;
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      FRONTEND_INSTALLER_FILE="cate-desktop/dist/mac/cate*.dmg";
+      ELECTRON_INSTALLER="cate-desktop/dist/mac/cate*.dmg";
     else
-      FRONTEND_INSTALLER_FILE="cate-desktop/dist/cate*.AppImage";
+      ELECTRON_INSTALLER="cate-desktop/dist/cate*.AppImage";
     fi
-  - MINICONDA_INSTALLER_FILE=cate*.sh;
   #
-  - echo $MINICONDA_INSTALLER_FILE
-  - echo $FRONTEND_INSTALLER_FILE
+  - echo $MINICONDA_INSTALLER
+  - echo $ELECTRON_INSTALLER
   #
   # only publish artifacts on master branch when pushed (not from cron or PRs)
   - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
-      curl --ftp-create-dirs -T $MINICONDA_INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
-      curl --ftp-create-dirs -T $$FRONTEND_INSTALLER_FILE -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
+      curl --ftp-create-dirs -T $MINICONDA_INSTALLER -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
+      curl --ftp-create-dirs -T $ELECTRON_INSTALLER -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/";
     fi

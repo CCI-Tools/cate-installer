@@ -2,22 +2,33 @@ version: '0.7.0a4.{build}'
 
 build: off
 
+environment:
+  global:
+    PYTHON_LOC: "C:\\Miniconda35-x64"
+  nodejs_version: "6.9.0"
+  apiUrl : "https://ci.appveyor.com/api"
+
 branches:
   only:
     - master
 
 install:
-  - set PATH=C:\Miniconda35-x64;C:\Miniconda35-x64\Scripts;%PATH%
+  # core
+  - set PATH=%PYTHON_LOC%;%PYTHON_LOC%\Scripts;%PATH%
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda
   - conda install -y constructor
+  # desktop
   - git clone https://github.com/CCI-Tools/cate-desktop.git
   - cd cate-desktop
+  - ps: Install-Product node $env:nodejs_version
   - npm install
   - cd ..
 
 build_script:
+  # core
   - constructor installer
+  # desktop
   - cd cate-desktop
   - npm run dist
   - cd ..

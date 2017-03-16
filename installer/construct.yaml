@@ -19,7 +19,10 @@ specs:
 
 license_file: ../LICENSE
 
+post_install: post-install.sh            [not win]
+post_install: post-install.bat           [win]
+
 # Welcome image for Windows installer
-welcome_image: welcome_162x314.png
-header_image: header_150x57.png
-icon_image: icon_256x256.png
+welcome_image: welcome_162x314.png       [win]
+header_image: header_150x57.png          [win]
+icon_image: icon_256x256.png             [win]

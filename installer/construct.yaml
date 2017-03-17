@@ -3,6 +3,7 @@
 
 name: cate
 version: "0.7.0a4"
+# make sure to adapt the platform version in the post_install script
 
 channels:
   - http://conda.anaconda.org/conda-forge

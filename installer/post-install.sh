@@ -1,6 +1,5 @@
 #!/bin/sh
 
-MZZ="0.7"
-mkdir -p ${HOME}/.cate/${MZZ}
-export > ${HOME}/.cate/${MZZ}/env.txt
-echo ${PREFIX} > ${HOME}/.cate/${MZZ}/cate.location
+VERSION="0.7"
+mkdir -p ${HOME}/.cate/${VERSION}
+echo ${PREFIX} > ${HOME}/.cate/${VERSION}/cate.location

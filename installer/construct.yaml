@@ -2,7 +2,7 @@
 # for more information about this file.
 
 name: cate
-version: "0.7.0a4"
+version: "0.8.0rc1"
 # make sure to adapt the platform version in the post_install script
 
 channels:
@@ -16,7 +16,7 @@ conda_default_channels:
 
 specs:
   - python 3.5*
-  - cate 0.7.0.dev1*
+  - cate 0.8.0rc1*
 
 license_file: ../LICENSE
 

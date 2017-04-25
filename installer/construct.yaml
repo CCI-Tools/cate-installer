@@ -16,7 +16,7 @@ conda_default_channels:
 
 specs:
   - python 3.5*
-  - cate 0.8.0rc1*
+  - cate-cli 0.8.0rc1*
 
 license_file: ../LICENSE
 

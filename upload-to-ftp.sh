@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
 
 function upload_ftp {
-    echo "uploading $1 to $2"
+    echo "uploading format $1 from file $2"
+    ls -l $2
     curl --ftp-create-dirs -T $2 -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/"
 }
 
 # core
+
+ls -lR cate-desktop/dist/
 
 echo "success pushing artifacts to FTP..."
 upload_ftp "miniconda" "cate*.sh"
@@ -17,4 +20,6 @@ if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
     upload_ftp "mac" "cate-desktop/dist/mac/Cate*mac.zip"
 else
     upload_ftp "AppImage" "cate-desktop/dist/cate*.AppImage"
+    upload_ftp "tar.gz" "cate-desktop/dist/cate*.tar.gz"
+    upload_ftp "zip" "cate-desktop/dist/cate*.zip"
 fi

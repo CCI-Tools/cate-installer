@@ -1,5 +1,5 @@
+# version here is only relevant for the AppVeyor CI, no need to adjust
 version: '{build}'
-# version here is only relevant for the appveyor CI, no need to adjust
 
 build: off
 

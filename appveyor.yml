@@ -5,7 +5,7 @@ build: off
 
 environment:
   global:
-    PYTHON_LOC: "C:\\Miniconda35-x64"
+    PYTHON_LOC: "C:\\Miniconda36-x64"
   nodejs_version: "6.9.0"
   apiUrl : "https://ci.appveyor.com/api"
 

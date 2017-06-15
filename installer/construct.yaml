@@ -15,9 +15,9 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  - python 3.5*
+  - python 3.6*
   - conda
-  - cate-cli 0.8.0rc3*
+  - cate-cli 0.8.0rc5*
 
 license_file: ../LICENSE
 

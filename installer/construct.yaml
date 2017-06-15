@@ -2,7 +2,7 @@
 # for more information about this file.
 
 name: cate
-version: "0.8.0rc3"
+version: "0.8.0rc5"
 # make sure to adapt the platform version in the post_install script
 
 channels:

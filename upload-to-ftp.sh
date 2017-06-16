@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# current version is 0.8.0rc5 b2
+
 function upload_ftp {
     echo Uploading ${1}: ${2}
     curl --ftp-create-dirs -T $2 -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/"

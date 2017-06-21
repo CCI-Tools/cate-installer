@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# current version is 0.8.0rc5 b2
+# current version is 0.8.0rc6 b1
 
 function upload_ftp {
     echo Uploading ${1}: ${2}

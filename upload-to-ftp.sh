@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# current version is 0.9.0.dev1, b1
+# Build:        b2
+# Cate Core:    0.9.0.dev1
+# Cate Desktop: 0.9.0-dev.2
 
 function upload_ftp {
     echo Uploading ${1}: ${2}

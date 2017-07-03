@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# Build:        b2
-# Cate Core:    0.9.0.dev1
+# Build:        b1
+# Cate Core:    0.9.0.dev2
 # Cate Desktop: 0.9.0-dev.2
 
 function upload_ftp {

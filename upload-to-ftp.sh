@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Build:        b1
+# Build:        b3
 # Cate Core:    0.9.0.dev3
 # Cate Desktop: 0.9.0-dev.4
 

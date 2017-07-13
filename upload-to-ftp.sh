@@ -2,7 +2,7 @@
 
 # Build:        b1
 # Cate Core:    0.9.0.dev3
-# Cate Desktop: 0.9.0-dev.3
+# Cate Desktop: 0.9.0-dev.4
 
 function upload_ftp {
     echo Uploading ${1}: ${2}

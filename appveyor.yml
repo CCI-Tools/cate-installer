@@ -28,7 +28,7 @@ install:
 
 build_script:
   # core
-  - constructor installer
+  - constructor --verbose --debug  installer
   - ps: $MINICONDA_FILE="*.exe"
   # desktop
   - cd cate-desktop

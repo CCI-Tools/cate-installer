@@ -18,8 +18,11 @@ specs:
   - python 3.6*
   - conda
   - cate-cli 0.9.0.dev4
+  # mkl 2017.0.3 on windows breaks the installer
+  # https://github.com/conda/constructor/issues/92
+  # pin to 2017.0.1 for time being
+  - mkl 2017.0.1
 
-keep_pkgs: True
 
 license_file: ../LICENSE
 

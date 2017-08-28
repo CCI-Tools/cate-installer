@@ -22,6 +22,9 @@ specs:
   # https://github.com/conda/constructor/issues/92
   # pin to 2017.0.1 for time being
   - mkl 2017.0.1
+  # an older version of zlib (1.2.8) got picked,
+  # but libpng requires 1.2.9 and does not require this explicitly
+  - zlib 1.2.11
 
 
 license_file: ../LICENSE

@@ -2,7 +2,7 @@
 # for more information about this file.
 
 name: cate
-version: "0.9.0.dev5"
+version: "0.9.0.dev6"
 # make sure to adapt the platform version in the post_install script
 
 channels:
@@ -17,7 +17,7 @@ conda_default_channels:
 specs:
   - python 3.6*
   - conda
-  - cate-cli 0.9.0.dev5
+  - cate-cli 0.9.0.dev6
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92
   # pin to 2017.0.1 for time being

@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 
-# Build:        b5
-# Cate Core:    0.9.0.dev7
-# Cate Desktop: 0.9.0-dev.7
-
 function upload_ftp {
     echo Uploading ${1}: ${2}
     curl --ftp-create-dirs -T $2 -u "$FTP_USER:$FTP_PASSWORD" "ftp://$FTP_HOST/software/$TRAVIS_OS_NAME/"

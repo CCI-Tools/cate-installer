@@ -1,5 +1,5 @@
 # Cate Core:    0.9.0.dev7
-# Cate Desktop: 0.9.0-dev.7, b7
+# Cate Desktop: 0.9.0-dev.7, b8
 
 language: node_js
 
@@ -31,7 +31,9 @@ cache:
     - node_modules
 
 install:
-  # core
+  #
+  # cate-core installer
+  #
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
     else
@@ -43,7 +45,10 @@ install:
   - conda config --set always_yes yes --set changeps1 no
   - conda update conda
   - conda install -y constructor
-  # desktop
+  - conda list
+  #
+  # cate-desktop installer
+  #
   - git clone https://github.com/CCI-Tools/cate-desktop.git
   - (cd cate-desktop && npm install)
 

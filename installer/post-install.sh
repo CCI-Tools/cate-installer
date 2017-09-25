@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="0.9.0.dev7"
+VERSION="1.0.0.dev1"
 VERSION_DIR="${HOME}/.cate/${VERSION}"
 
 mkdir -p ${VERSION_DIR}

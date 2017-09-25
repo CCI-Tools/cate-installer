@@ -1,4 +1,4 @@
-<img alt="Cate: ESA CCI Toolbox" align="right" src="https://raw.githubusercontent.com/CCI-Tools/cate-core/master/doc/source/_static/logo/cci-toolbox-logo-latex.jpg" />
+<img alt="Cate: ESA CCI Toolbox" align="right" src="https://raw.githubusercontent.com/CCI-Tools/cate/master/doc/source/_static/logo/cci-toolbox-logo-latex.jpg" />
 
 [![Build Status](https://travis-ci.org/CCI-Tools/cate-installer.svg?branch=master)](https://travis-ci.org/CCI-Tools/cate-installer)
 [![Build status](https://ci.appveyor.com/api/projects/status/sc52gjejowpgmatb/branch/master?svg=true)](https://ci.appveyor.com/project/ccitools/cate-installer/branch/master)
@@ -8,7 +8,7 @@
 This repository provides scripts used to build and deploy (TODO!)
 a stand-alone installer which includes both a
 [Miniconda](https://conda.io/miniconda.html) Python, 
-[Cate](https://github.com/CCI-Tools/cate-core), and all Cate dependencies. 
+[Cate](https://github.com/CCI-Tools/cate), and all Cate dependencies.
  
 See also the [cate-conda](https://github.com/CCI-Tools/cate-conda) repo 
 which is used to build various Conda packages for Cate.
@@ -23,11 +23,11 @@ Install `constructor` (version >= 1.5.2) in your root Miniconda:
 
 Clone this repo if not already done:
 
-    git clone https://github.com/CCI-Tools/cate-core.git
+    git clone https://github.com/CCI-Tools/cate.git
 
 Build Anaconda installer `cate` (see `installer/construct.yaml`):
 
-    $ cd cate-core
+    $ cd cate
     $ constructor installer
 
 *Warning: there is still an absolute (Windows) path in `installer/construct.yaml` which will remain

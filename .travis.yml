@@ -53,7 +53,7 @@ install:
   - (cd cate-desktop && npm install)
 
 script:
-  - constructor installer
+  - constructor --verbose --debug installer
   - (cd cate-desktop && npm run dist)
 
 after_success:

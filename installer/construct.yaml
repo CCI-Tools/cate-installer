@@ -15,7 +15,7 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  - python 3.6*
+  #- python 3.6*
   - conda
   - cate-cli 1.0.0.dev1
   # mkl 2017.0.3 on windows breaks the installer
@@ -26,6 +26,11 @@ specs:
   # but libpng requires 1.2.9 and does not require this explicitly
   - zlib 1.2.11
 
+# python should be used from the anaconda channel, to support OS X 10.9 and newer
+packages:
+- https://anaconda.org/anaconda/python/3.6.2/download/linux-64/python-3.6.2-hdfe5801_15.tar.bz2 [linux]
+- https://anaconda.org/anaconda/python/3.6.2/download/osx-64/python-3.6.2-hd0bf7f1_15.tar.bz2   [osx]
+- https://anaconda.org/anaconda/python/3.6.2/download/win-64/python-3.6.2-h09676a0_15.tar.bz2   [win]
 
 license_file: ../LICENSE
 

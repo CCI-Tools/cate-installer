@@ -23,8 +23,16 @@ specs:
   - mkl 2017.0.1
   # an older version of zlib (1.2.8) got picked,
   # but libpng requires 1.2.9 and does not require this explicitly
-  - zlib 1.2.11
+  #- zlib 1.2.11
   - conda
+  #- psutil >=5.2
+  #- kealib 1.4.7
+  #- gdal 2.1.4
+  #- libgdal 2.1.4
+  #- fiona >=1.7
+  #- h5netcdf >=0.4.2
+  #- pyshp >=1.2
+  #- geopandas >=0.2
 
 # python should be used from the anaconda channel, to support OS X 10.9 and newer
 exclude:

@@ -15,8 +15,7 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  - python 3.6*
-  - conda
+  #- python 3.6*
   - cate-cli 1.0.0
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92
@@ -25,6 +24,7 @@ specs:
   # an older version of zlib (1.2.8) got picked,
   # but libpng requires 1.2.9 and does not require this explicitly
   - zlib 1.2.11
+  - conda
 
 # python should be used from the anaconda channel, to support OS X 10.9 and newer
 exclude:

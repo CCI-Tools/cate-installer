@@ -15,7 +15,7 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  #- python 3.6*
+  - python 3.6*
   - cate-cli 1.0.0
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92
@@ -34,13 +34,18 @@ specs:
   #- pyshp >=1.2
   #- geopandas >=0.2
 
+#
+# The following block was used with constructor 1.5. We now switched to 2.0.
+#
+
 # python should be used from the anaconda channel, to support OS X 10.9 and newer
-exclude:
-  - python
-packages:
-  - https://repo.continuum.io/pkgs/free/linux-64/python-3.6.2-0.tar.bz2 [linux]
-  - https://repo.continuum.io/pkgs/free/osx-64/python-3.6.2-0.tar.bz2   [osx]
-  - https://repo.continuum.io/pkgs/free/win-64/python-3.6.2-0.tar.bz2   [win]
+#exclude:
+#  - python
+#
+#packages:
+#  - https://repo.continuum.io/pkgs/free/linux-64/python-3.6.2-0.tar.bz2 [linux]
+#  - https://repo.continuum.io/pkgs/free/osx-64/python-3.6.2-0.tar.bz2   [osx]
+#  - https://repo.continuum.io/pkgs/free/win-64/python-3.6.2-0.tar.bz2   [win]
 
 license_file: ../LICENSE
 
@@ -52,15 +57,18 @@ welcome_image: welcome_162x314.png       [win]
 header_image: header_150x57.png          [win]
 icon_image: icon_256x256.png             [win]
 
-# TODO (forman): The following settings are important for Cate, but only
-# available in constructor 1.6 which is (released but) not yet available, see
-# https://github.com/conda/constructor/issues/116
-
 # Default choice for whether to add the installation to the PATH environment variable.
 # The user is still able to change this during interactive installation.
-#add_to_path_default: False
+add_to_path_default: False
 
 # Default choice for whether to register the installed Python instance as the system's
 # default Python. The user is still able to change this during interactive installation.
 # (Windows only)
-#register_python_default: False
+register_python_default: False
+
+# Without the next setting we get:
+#   Checking for duplicate files ...
+#   Error: File 'Library/COPYING' found in multiple packages: hdf4-4.2.13-vc14_0.tar.bz2, hdf5-1.10.1-vc14_1.tar.bz2
+# See https://github.com/conda/constructor/issues/132
+ignore_duplicate_files: True
+

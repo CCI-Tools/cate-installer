@@ -16,18 +16,18 @@ which is used to build various Conda packages for Cate.
 
 ## Building a Conda stand-alone installer
 
-Install `constructor` (version >= 1.5.2) in your root Miniconda:
+Install `constructor` (version >= 2.0) in your root Miniconda:
 
     $ source activate
     $ conda install constructor
 
 Clone this repo if not already done:
 
-    git clone https://github.com/CCI-Tools/cate.git
+    git clone https://github.com/CCI-Tools/cate-installer.git
 
 Build Anaconda installer `cate` (see `installer/construct.yaml`):
 
-    $ cd cate
+    $ cd cate-installer
     $ constructor installer
 
 *Warning: there is still an absolute (Windows) path in `installer/construct.yaml` which will remain
@@ -47,7 +47,7 @@ The generated installer will have the same options as the default
 
 Example:
 
-    > cate-0.7.0a4-Windows-x86_64.exe /S /InstallationType=JustMe /AddToPath=0 /RegisterPython=0 /D=C:\Users\Dave\cate-0.7.0a4
+    > cate-1.0.0-Windows-x86_64.exe /S /InstallationType=JustMe /AddToPath=0 /RegisterPython=0 /D=C:\Users\Dave\cate-1.0.0
 
 ### Linux and Darwin installer options
 
@@ -57,7 +57,7 @@ Example:
 
 Example:
 
-    $ ./cate-0.7.0a4-Linux-x86_64.sh -b -f -p /home/dave/cate-0.7.0a4
+    $ ./cate-1.0.0-Linux-x86_64.sh -b -f -p /home/dave/cate-1.0.0
 
 ## Remaining issues and TODOs
 

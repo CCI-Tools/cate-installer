@@ -2,8 +2,11 @@
 # for more information about this file.
 
 name: cate
-version: "1.0.0"
-# make sure to adapt the platform version in the post_install script
+
+# Use PEP 440 compliant version identifier.
+# If you change this, make sure to adapt the platform version in the post_install scripts!
+
+version: "1.1.0-dev1"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -16,15 +19,18 @@ conda_default_channels:
 
 specs:
   - python 3.6*
-  - cate-cli 1.0.0
+  - cate-cli 1.1.0.dev1
+  - conda
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92
   # pin to 2017.0.1 for time being
   - mkl 2017.0.1
+  #
+  # The following dependencies have caused problems in the past, so we leave them here, just in case.
+  #
   # an older version of zlib (1.2.8) got picked,
   # but libpng requires 1.2.9 and does not require this explicitly
   #- zlib 1.2.11
-  - conda
   #- psutil >=5.2
   #- kealib 1.4.7
   #- gdal 2.1.4

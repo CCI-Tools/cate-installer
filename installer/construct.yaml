@@ -6,7 +6,7 @@ name: cate
 # Use PEP 440 compliant version identifier.
 # If you change this, make sure to adapt the platform version in the post_install scripts!
 
-version: "1.1.0-dev1"
+version: "1.1.0.dev1"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -77,4 +77,3 @@ register_python_default: False
 #   Error: File 'Library/COPYING' found in multiple packages: hdf4-4.2.13-vc14_0.tar.bz2, hdf5-1.10.1-vc14_1.tar.bz2
 # See https://github.com/conda/constructor/issues/132
 ignore_duplicate_files: True
-

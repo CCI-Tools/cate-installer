@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b5
+# Cate Core:    1.1.0.dev1, b6
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -53,7 +53,7 @@ install:
   - (cd cate-desktop && npm install)
 
 script:
-  - constructor --verbose --debug installer
+  - constructor installer
   - (cd cate-desktop && npm run dist)
 
 after_success:

@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b25
+# Cate Core:    1.1.0.dev1, b26
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -37,11 +37,11 @@ install:
   #
   # Let's see if "security install" prints the same SHA256 key
   # So far it was: 86fe3902dc4c101570f93b5a563817bf3269851ca4cbcebba5d1ab68e4557e5a
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      echo -n $CSC_KEY_PASSWORD | shasum -a 256
-    else
-      echo -n $CSC_KEY_PASSWORD | sha256sum | awk '{print $1}'
-    fi
+  #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+  #    echo -n $CSC_KEY_PASSWORD | shasum -a 256
+  #  else
+  #    echo -n $CSC_KEY_PASSWORD | sha256sum | awk '{print $1}'
+  #  fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
       wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
     else

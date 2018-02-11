@@ -1,10 +1,10 @@
-# Cate Core:    1.1.0.dev1, b14
+# Cate Core:    1.1.0.dev1, b16
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
 
 node_js:
-  - "6"
+  - "8"
 
 env:
   global:
@@ -60,9 +60,15 @@ script:
   - cd cate-desktop
   - npm run clean
   - npm run compile
-  - ps -aux
+  - ps -a
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      # security: SecKeychainItemImport: MAC verification failed during PKCS12 import (wrong password?)
+      # see https://gist.github.com/BanzaiMan/11152878
+      security default-keychain -s ios-build.keychain
+      security unlock-keychain -p travis ios-build.keychain
+    fi
   - npm run build
-  - ps -aux
+  - ps -a
 
 after_success:
   # only publish artifacts on master branch when pushed (not from cron or PRs)

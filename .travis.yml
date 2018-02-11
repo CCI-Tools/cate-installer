@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b12
+# Cate Core:    1.1.0.dev1, b13
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -54,8 +54,14 @@ install:
 
 script:
   - constructor installer
-  - (cd cate-desktop && npm run dist)
-
+  # Breaking down following command so we can debug why the build process hangs on Travis/Linux
+  #- (cd cate-desktop && npm run dist)
+  - cd cate-desktop
+  - npm run clean
+  - npm run compile
+  - ps -aux
+  - npm run build
+  - ps -aux
 
 after_script:
   - ps -aux

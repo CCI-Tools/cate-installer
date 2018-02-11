@@ -1,10 +1,10 @@
-# Cate Core:    1.1.0.dev1, b21
+# Cate Core:    1.1.0.dev1, b22
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
 
 node_js:
-  - "6"
+  - "8"
 
 env:
   global:
@@ -55,21 +55,10 @@ install:
 
 script:
   - constructor installer
-  # Breaking down following command so we can debug why the build process hangs on Travis/Linux
-  # - (cd cate-desktop && npm run dist)
   - cd cate-desktop
-  - npm -v
   - npm run clean
   - npm run compile
-  - ps -a
-  # security: SecKeychainItemImport: MAC verification failed during PKCS12 import (wrong password?)
-  # see https://gist.github.com/BanzaiMan/11152878
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      security default-keychain -s ios-build.keychain
-      security unlock-keychain -p travis ios-build.keychain
-    fi
   - npm run build
-  - ps -a
   - cd ..
 
 after_success:

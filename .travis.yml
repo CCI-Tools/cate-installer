@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b19
+# Cate Core:    1.1.0.dev1, b20
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -70,6 +70,7 @@ script:
     fi
   - npm run build
   - ps -a
+  - cd ..
 
 after_success:
   # only publish artifacts on master branch when pushed (not from cron or PRs)

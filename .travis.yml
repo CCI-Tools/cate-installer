@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b11
+# Cate Core:    1.1.0.dev1, b12
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -55,6 +55,10 @@ install:
 script:
   - constructor installer
   - (cd cate-desktop && npm run dist)
+
+
+after_script:
+  - ps -aux
 
 after_success:
   # only publish artifacts on master branch when pushed (not from cron or PRs)

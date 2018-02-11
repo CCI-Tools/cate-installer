@@ -1,4 +1,4 @@
-# Cate Core:    1.1.0.dev1, b13
+# Cate Core:    1.1.0.dev1, b14
 # Cate Desktop: 1.1.0-dev.1
 
 language: node_js
@@ -19,6 +19,7 @@ os:
   - osx
 
 dist: trusty
+
 addons:
   apt:
     packages:
@@ -61,9 +62,6 @@ script:
   - npm run compile
   - ps -aux
   - npm run build
-  - ps -aux
-
-after_script:
   - ps -aux
 
 after_success:

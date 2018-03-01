@@ -6,7 +6,7 @@ build: off
 environment:
   global:
     PYTHON_LOC: "C:\\Miniconda36-x64"
-  nodejs_version: "6.9.0"
+  nodejs_version: "8.9.4"
   apiUrl : "https://ci.appveyor.com/api"
 
 branches:
@@ -15,10 +15,10 @@ branches:
 
 install:
   # core
-  - set PATH=%PYTHON_LOC%;%PYTHON_LOC%\Scripts;%PATH%
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update conda
-  - conda install -y constructor
+  #- set PATH=%PYTHON_LOC%;%PYTHON_LOC%\Scripts;%PATH%
+  #- conda config --set always_yes yes --set changeps1 no
+  #- conda update conda
+  #- conda install -y constructor
   # desktop
   - git clone https://github.com/CCI-Tools/cate-desktop.git
   - cd cate-desktop
@@ -28,25 +28,27 @@ install:
 
 build_script:
   # core
-  - constructor installer
-  - ps: $MINICONDA_FILE="*.exe"
+  #- constructor installer
+  #- ps: $MINICONDA_FILE="*.exe"
   # desktop
   - cd cate-desktop
-  - npm run dist
-  - cd ..
-  - move cate-desktop\dist win64
-  - ps: cp $MINICONDA_FILE win64
+  - npm run clean
+  - npm run compile
+  - npm run publish
+  #- cd ..
+  #- move cate-desktop\dist win64
+  #- ps: cp $MINICONDA_FILE win64
 
-artifacts:
-  - path: 'win64\*.exe'
-    name: installer
+#artifacts:
+#  - path: 'win64\*.exe'
+#    name: installer
 
-deploy:
-  - provider: FTP
-    protocol: ftp
-    host: ftp.brockmann-consult.de
-    username: ccitbx
-    password:
-      secure: pgE0Tsk7QVyQ6jvH42jqWA==
-    folder: software
-    debug: true
+#deploy:
+#  - provider: FTP
+#    protocol: ftp
+#    host: ftp.brockmann-consult.de
+#    username: ccitbx
+#    password:
+#      secure: pgE0Tsk7QVyQ6jvH42jqWA==
+#    folder: software
+#    debug: true

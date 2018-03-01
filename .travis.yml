@@ -1,5 +1,5 @@
 # Cate Core:    1.1.0.dev1, b31
-# Cate Desktop: 1.1.0-dev.1
+# Cate Desktop: 1.1.0-dev.6
 
 language: node_js
 
@@ -34,25 +34,18 @@ install:
   #
   # cate installer
   #
-  # Let's see if "security install" prints the same SHA256 key
-  # So far it was: 86fe3902dc4c101570f93b5a563817bf3269851ca4cbcebba5d1ab68e4557e5a
   #- if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-  #    echo -n $CSC_KEY_PASSWORD | shasum -a 256
+  #    wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
   #  else
-  #    echo -n $CSC_KEY_PASSWORD | sha256sum | awk '{print $1}'
+  #    wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
   #  fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-MacOSX-x86_64.sh -O miniconda.sh;
-    else
-      wget https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh;
-    fi
-  - bash miniconda.sh -b -p $HOME/miniconda
-  - export PATH="$HOME/miniconda/bin:$PATH"
-  - hash -r
-  - conda config --set always_yes yes --set changeps1 no
-  - conda update conda
-  - conda install -y constructor
-  - conda list
+  #- bash miniconda.sh -b -p $HOME/miniconda
+  #- export PATH="$HOME/miniconda/bin:$PATH"
+  #- hash -r
+  #- conda config --set always_yes yes --set changeps1 no
+  #- conda update conda
+  #- conda install -y constructor
+  #- conda list
   #
   # cate-desktop installer
   #
@@ -60,15 +53,15 @@ install:
   - (cd cate-desktop && npm install)
 
 script:
-  - constructor installer
+  #- constructor installer
   - cd cate-desktop
   - npm run clean
   - npm run compile
-  - npm run build
+  - npm run publish
   - cd ..
 
-after_success:
-  # only publish artifacts on master branch when pushed (not from cron or PRs)
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
-      ./upload-to-ftp.sh;
-    fi
+#after_success:
+#  # only publish artifacts on master branch when pushed (not from cron or PRs)
+#  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_EVENT_TYPE" = "push" ]; then
+#      ./upload-to-ftp.sh;
+#    fi

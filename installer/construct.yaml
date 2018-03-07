@@ -6,7 +6,7 @@ name: cate
 # Use PEP 440 compliant version identifier.
 # If you change this, make sure to adapt the platform version in the post_install scripts!
 
-version: "1.1.0.dev6"
+version: "2.0.0.dev1"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -19,7 +19,7 @@ conda_default_channels:
 
 specs:
   - python 3.6*
-  - cate-cli 1.1.0.dev6
+  - cate-cli 2.0.0.dev1
   - conda
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92
@@ -54,6 +54,8 @@ specs:
 #  - https://repo.continuum.io/pkgs/free/win-64/python-3.6.2-0.tar.bz2   [win]
 
 license_file: ../LICENSE
+
+company: Brockmann Consult GmbH
 
 post_install: post-install.sh            [not win]
 post_install: post-install.bat           [win]

@@ -1,5 +1,5 @@
-# Cate Desktop: 2.0.0-dev.11, b4 (new npm version due to AppVeyor build failure)
-# Cate Core:    2.0.0.dev11
+# Cate Desktop: 2.0.0-dev.12, b1
+# Cate Core:    2.0.0.dev12
 
 language: node_js
 

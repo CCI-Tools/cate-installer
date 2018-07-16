@@ -42,20 +42,20 @@ build_script:
   - npm run clean
   - npm run compile
   - npm run publish
-  #- cd ..
-  #- move cate-desktop\dist win64
+  - cd ..
+  - move cate-desktop\dist win64
   #- ps: cp $MINICONDA_FILE win64
 
-#artifacts:
-#  - path: 'win64\*.exe'
-#    name: installer
+artifacts:
+  - path: 'win64\*.exe'
+    name: installer
 
-#deploy:
-#  - provider: FTP
-#    protocol: ftp
-#    host: ftp.brockmann-consult.de
-#    username: ccitbx
-#    password:
-#      secure: pgE0Tsk7QVyQ6jvH42jqWA==
-#    folder: software
-#    debug: true
+deploy:
+  - provider: FTP
+    protocol: ftp
+    host: ftp.brockmann-consult.de
+    username: ccitbx
+    password:
+      secure: pgE0Tsk7QVyQ6jvH42jqWA==
+    folder: software
+    debug: true

@@ -1,4 +1,4 @@
-# Cate Desktop: 2.0.0-dev.16, b2
+# Cate Desktop: 2.0.0-dev.16, b3
 # Cate Core:    2.0.0.dev16
 
 language: node_js
@@ -57,7 +57,7 @@ script:
   - cd cate-desktop
   - npm run clean
   - npm run compile
-  - npm run publish
+  - npm run build
   - cd ..
 
 after_success:

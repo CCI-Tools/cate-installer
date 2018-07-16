@@ -41,7 +41,7 @@ build_script:
   - cd cate-desktop
   - npm run clean
   - npm run compile
-  - npm run publish
+  - npm run build
   - cd ..
   - move cate-desktop\dist win64
   #- ps: cp $MINICONDA_FILE win64

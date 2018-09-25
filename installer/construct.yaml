@@ -6,7 +6,7 @@ name: cate
 # Use PEP 440 compliant version identifier.
 # If you change this, make sure to adapt the platform version in the post_install scripts!
 
-version: "2.0.0.dev19"
+version: "2.0.0.dev20"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -19,7 +19,7 @@ conda_default_channels:
 
 specs:
   - python 3.6*
-  - cate-cli 2.0.0.dev19
+  - cate-cli 2.0.0.dev20
   - conda
   # mkl 2017.0.3 on windows breaks the installer
   # https://github.com/conda/constructor/issues/92

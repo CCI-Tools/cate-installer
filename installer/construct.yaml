@@ -6,7 +6,7 @@ name: cate
 # Use PEP 440 compliant version identifier.
 # If you change this, make sure to adapt the platform version in the post_install scripts!
 
-version: "2.0.0.dev22"
+version: "2.0.0.dev24"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -18,40 +18,8 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  - python 3.6*
-  - cate-cli 2.0.0.dev22
-  - conda
-  # mkl 2017.0.3 on windows breaks the installer
-  # https://github.com/conda/constructor/issues/92
-  # pin to 2017.0.1 for time being
-  - mkl 2017.0.1
-  #
-  # The following dependencies have caused problems in the past, so we leave them here, just in case.
-  #
-  # an older version of zlib (1.2.8) got picked,
-  # but libpng requires 1.2.9 and does not require this explicitly
-  #- zlib 1.2.11
-  #- psutil >=5.2
-  #- kealib 1.4.7
-  #- gdal 2.1.4
-  #- libgdal 2.1.4
-  #- fiona >=1.7
-  #- h5netcdf >=0.4.2
-  #- pyshp >=1.2
-  #- geopandas >=0.2
-
-#
-# The following block was used with constructor 1.5. We now switched to 2.0.
-#
-
-# python should be used from the anaconda channel, to support OS X 10.9 and newer
-#exclude:
-#  - python
-#
-#packages:
-#  - https://repo.continuum.io/pkgs/free/linux-64/python-3.6.2-0.tar.bz2 [linux]
-#  - https://repo.continuum.io/pkgs/free/osx-64/python-3.6.2-0.tar.bz2   [osx]
-#  - https://repo.continuum.io/pkgs/free/win-64/python-3.6.2-0.tar.bz2   [win]
+  - python 3.7.1
+  - cate-cli 2.0.0.dev24
 
 license_file: ../LICENSE
 

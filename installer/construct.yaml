@@ -6,7 +6,7 @@ name: cate
 # Use PEP 440 compliant version identifier.
 # If you change this, make sure to adapt the platform version in the post_install scripts!
 
-version: "2.0.0.dev24"
+version: "2.0.0.dev25"
 
 channels:
   - http://conda.anaconda.org/conda-forge
@@ -18,8 +18,8 @@ conda_default_channels:
   - http://repo.continuum.io/pkgs/free
 
 specs:
-  - python 3.7.1
-  - cate-cli 2.0.0.dev24
+  - python 3.7
+  - cate-cli 2.0.0.dev25
 
 license_file: ../LICENSE
 
